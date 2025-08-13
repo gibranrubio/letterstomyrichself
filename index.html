@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Letters To My Rich Self - $10 Monthly Financial Letters That Actually Work</title>
-    <meta name="description" content="A revolutionary approach to financial education through physical letters delivered to your mailbox. Each month, subscribers receive hand-stamped letters from their 'future wealthy self' containing relatable money stories, actionable principles, and classic finance book cheat sheets - all designed specifically for first-generation earners who never got the 'rich-kid playbook.'">
+    <meta name="description" content="A revolutionary approach to financial education through physical letters delivered to your mailbox.">
     <style>
         * {
             margin: 0;
@@ -15,31 +15,93 @@
         html, body {
             background: #000000 !important;
             background-color: #000000 !important;
+            overflow-x: hidden;
         }
 
         body {
             font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
             background: #000000;
             color: #00ff00;
-            overflow-x: hidden;
             line-height: 1.6;
             font-size: 16px;
+            position: relative;
+        }
+
+        /* CRT Screen Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                linear-gradient(transparent 50%, rgba(0, 255, 0, 0.03) 50%),
+                linear-gradient(90deg, transparent 50%, rgba(0, 255, 0, 0.02) 50%);
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            z-index: 1000;
+            animation: flicker 0.15s infinite linear alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            98% { opacity: 1; }
+            99% { opacity: 0.98; }
+            100% { opacity: 0.96; }
+        }
+
+        /* Screen glow effect */
+        body::after {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.01) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 999;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.01; }
+            50% { transform: scale(1.1); opacity: 0.03; }
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 0 40px;
+            position: relative;
+            z-index: 10;
         }
 
+        /* Enhanced Terminal Header with Typewriter */
         .terminal-header {
             color: #888;
             font-size: 14px;
             margin-bottom: 2rem;
             font-weight: normal;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            animation: typewriter 3s steps(40) forwards, blink-caret 1s step-end infinite;
+            border-right: 2px solid #888;
         }
 
-        /* Hero section styling */
+        @keyframes typewriter {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            0%, 50% { border-color: #888; }
+            51%, 100% { border-color: transparent; }
+        }
+
+        /* Hero section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -48,80 +110,142 @@
             align-items: flex-start;
             padding: 2rem 0;
             position: relative;
-            color: #00ff00;
         }
 
-        .hero-content {
-            color: #00ff00;
-        }
-
-        /* Main title specific styling */
+        /* Hologram effect for main title */
         .main-title {
             color: #00ff00 !important;
-            text-shadow: none !important;
-            background: transparent !important;
-            -webkit-text-fill-color: #00ff00 !important;
-            -webkit-background-clip: unset !important;
-            background-clip: unset !important;
+            text-shadow: 
+                0 0 5px #00ff00,
+                0 0 10px #00ff00,
+                0 0 15px #00ff00,
+                0 0 20px #00ff00;
             font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: bold;
             margin-bottom: 2rem;
-            text-transform: none;
             line-height: 1.2;
-            font-family: inherit;
+            position: relative;
+            animation: hologramGlow 3s ease-in-out infinite;
         }
 
+        @keyframes hologramGlow {
+            0%, 100% { 
+                text-shadow: 
+                    0 0 5px #00ff00,
+                    0 0 10px #00ff00,
+                    0 0 15px #00ff00,
+                    0 0 20px #00ff00;
+            }
+            50% { 
+                text-shadow: 
+                    0 0 10px #00ff00,
+                    0 0 20px #00ff00,
+                    0 0 30px #00ff00,
+                    0 0 40px #00ff00;
+            }
+        }
+
+        /* Advanced blinking cursor */
         .blink-cursor {
-            animation: blink 1s infinite;
+            animation: advancedBlink 1s infinite;
             color: #00ff00 !important;
             font-weight: bold;
-            background: transparent !important;
+            text-shadow: 0 0 10px #00ff00;
         }
 
-        @keyframes blink {
+        @keyframes advancedBlink {
             0%, 50% { 
                 opacity: 1; 
-                visibility: visible;
+                text-shadow: 0 0 10px #00ff00;
             }
             51%, 100% { 
                 opacity: 0; 
-                visibility: hidden;
+                text-shadow: none;
             }
         }
 
+        /* Subtitle with reveal animation */
         .subtitle {
             font-size: clamp(1rem, 2.5vw, 1.4rem);
             margin-bottom: 3rem;
             color: #00ff00;
-            font-weight: normal;
             max-width: 600px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUpReveal 1s ease-out 2s forwards;
         }
 
-        /* Terminal-style sections */
+        @keyframes slideUpReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Enhanced sections with scan effect */
         .section {
             margin: 4rem 0;
             border: 1px solid #333;
             background: rgba(0, 255, 0, 0.02);
             padding: 2rem;
             position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section::before {
             content: '';
             position: absolute;
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            height: 2px;
-            background: #00ff00;
-            animation: scanline 3s linear infinite;
+            top: -2px;
+            left: -100%;
+            width: 100%;
+            height: calc(100% + 4px);
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.3), transparent);
+            animation: sectionScan 3s ease-in-out infinite;
         }
 
-        @keyframes scanline {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        @keyframes sectionScan {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: -100%; }
         }
 
+        /* Floating data particles */
+        .data-particle {
+            position: absolute;
+            color: #00ff00;
+            font-family: monospace;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0.6;
+            animation: floatUp 8s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-20px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Enhanced section titles with decode effect */
         .section-title {
             color: #00ff00;
             font-size: 1.8rem;
@@ -129,15 +253,27 @@
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .section-content {
-            color: #00ff00;
-            font-size: 1rem;
-            line-height: 1.6;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.4), transparent);
+            animation: titleReveal 2s ease-in-out;
         }
 
-        /* Terminal list styling */
+        @keyframes titleReveal {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Terminal list with typing effect */
         .terminal-list {
             list-style: none;
             margin: 1.5rem 0;
@@ -148,6 +284,16 @@
             position: relative;
             padding-left: 2rem;
             color: #00ff00;
+            opacity: 0;
+            animation: typeIn 0.5s ease-out forwards;
+        }
+
+        .terminal-list li:nth-child(1) { animation-delay: 0.2s; }
+        .terminal-list li:nth-child(2) { animation-delay: 0.4s; }
+        .terminal-list li:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes typeIn {
+            to { opacity: 1; }
         }
 
         .terminal-list li::before {
@@ -156,12 +302,18 @@
             left: 0;
             color: #00ff00;
             font-weight: bold;
+            animation: prompt 2s ease-in-out infinite;
         }
 
-        /* Price display */
+        @keyframes prompt {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.5; }
+        }
+
+        /* Enhanced price display with pulse */
         .price-display {
             background: rgba(0, 255, 0, 0.1);
-            border: 1px solid #00ff00;
+            border: 2px solid #00ff00;
             padding: 1rem 2rem;
             margin: 2rem 0;
             display: inline-block;
@@ -169,14 +321,26 @@
             font-weight: bold;
             color: #00ff00;
             position: relative;
+            box-shadow: 
+                0 0 10px rgba(0, 255, 0, 0.5),
+                inset 0 0 10px rgba(0, 255, 0, 0.2);
+            animation: priceGlow 2s ease-in-out infinite;
         }
 
-        .price-display::before {
-            content: '$';
-            animation: blink 2s infinite;
+        @keyframes priceGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 10px rgba(0, 255, 0, 0.5),
+                    inset 0 0 10px rgba(0, 255, 0, 0.2);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 20px rgba(0, 255, 0, 0.8),
+                    inset 0 0 20px rgba(0, 255, 0, 0.4);
+            }
         }
 
-        /* Button styling */
+        /* Advanced button with multiple effects */
         .terminal-button {
             background: transparent;
             border: 2px solid #00ff00;
@@ -189,17 +353,12 @@
             margin: 1rem 0;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
             position: relative;
             overflow: hidden;
-        }
-
-        .terminal-button:hover {
-            background: #00ff00;
-            color: #0a0a0a;
-            box-shadow: 0 0 20px #00ff00;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 rgba(0, 255, 0, 0.5);
         }
 
         .terminal-button::before {
@@ -209,15 +368,44 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.4), transparent);
             transition: left 0.5s ease;
+        }
+
+        .terminal-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(0, 255, 0, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+        }
+
+        .terminal-button:hover {
+            background: rgba(0, 255, 0, 0.1);
+            color: #00ff00;
+            box-shadow: 
+                0 0 20px rgba(0, 255, 0, 0.6),
+                0 0 40px rgba(0, 255, 0, 0.4),
+                inset 0 0 20px rgba(0, 255, 0, 0.1);
+            transform: translateY(-2px);
+            text-shadow: 0 0 10px #00ff00;
         }
 
         .terminal-button:hover::before {
             left: 100%;
         }
 
-        /* Grid for features */
+        .terminal-button:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Enhanced feature grid */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -230,13 +418,33 @@
             padding: 1.5rem;
             background: rgba(0, 255, 0, 0.02);
             position: relative;
-            transition: all 0.3s ease;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+            transition: left 0.6s ease;
         }
 
         .feature-item:hover {
             border-color: #00ff00;
             background: rgba(0, 255, 0, 0.05);
-            transform: translateY(-2px);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 10px 30px rgba(0, 255, 0, 0.2),
+                0 0 20px rgba(0, 255, 0, 0.1);
+        }
+
+        .feature-item:hover::before {
+            left: 100%;
         }
 
         .feature-item h3 {
@@ -244,34 +452,88 @@
             font-size: 1.2rem;
             margin-bottom: 1rem;
             font-weight: bold;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
         }
 
-        .feature-item p {
-            color: #00ff00;
-            opacity: 0.8;
-        }
-
-        /* Testimonials */
-        .testimonial {
-            border-left: 3px solid #00ff00;
-            padding-left: 1.5rem;
+        /* Stats with counter animation */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
             margin: 2rem 0;
-            background: rgba(0, 255, 0, 0.02);
+        }
+
+        .stat-item {
+            text-align: center;
             padding: 1.5rem;
+            border: 1px solid #333;
+            background: rgba(0, 255, 0, 0.02);
+            position: relative;
+            overflow: hidden;
         }
 
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1rem;
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
             color: #00ff00;
+            display: block;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
         }
 
-        .testimonial-author {
-            color: #888;
-            font-size: 0.9rem;
+        /* Enhanced Matrix background */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.08;
         }
 
-        /* Guarantee box */
+        /* Terminal boot sequence */
+        .boot-sequence {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            color: #00ff00;
+            font-family: monospace;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem;
+            animation: bootFade 4s ease-in-out forwards;
+        }
+
+        @keyframes bootFade {
+            0%, 70% { opacity: 1; }
+            100% { opacity: 0; pointer-events: none; }
+        }
+
+        .boot-line {
+            margin: 0.2rem 0;
+            opacity: 0;
+            animation: bootText 0.5s ease-out forwards;
+        }
+
+        .boot-line:nth-child(1) { animation-delay: 0.2s; }
+        .boot-line:nth-child(2) { animation-delay: 0.4s; }
+        .boot-line:nth-child(3) { animation-delay: 0.6s; }
+        .boot-line:nth-child(4) { animation-delay: 0.8s; }
+        .boot-line:nth-child(5) { animation-delay: 1.0s; }
+        .boot-line:nth-child(6) { animation-delay: 1.2s; }
+
+        @keyframes bootText {
+            to { opacity: 1; }
+        }
+
+        /* Guarantee box with enhanced effects */
         .guarantee-box {
             border: 2px solid #00ff00;
             padding: 2rem;
@@ -279,36 +541,32 @@
             background: rgba(0, 255, 0, 0.05);
             text-align: center;
             position: relative;
+            box-shadow: 
+                0 0 20px rgba(0, 255, 0, 0.3),
+                inset 0 0 20px rgba(0, 255, 0, 0.1);
+            animation: guaranteePulse 3s ease-in-out infinite;
         }
 
-        .guarantee-box::before {
-            content: '🔒 SECURE GUARANTEE';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            background: #0a0a0a;
-            padding: 0 10px;
-            color: #00ff00;
-            font-size: 0.8rem;
-            font-weight: bold;
+        @keyframes guaranteePulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 20px rgba(0, 255, 0, 0.3),
+                    inset 0 0 20px rgba(0, 255, 0, 0.1);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 30px rgba(0, 255, 0, 0.5),
+                    inset 0 0 30px rgba(0, 255, 0, 0.2);
+            }
         }
 
-        .guarantee-box h2 {
-            color: #00ff00;
-        }
-
-        .guarantee-box p {
-            color: #00ff00;
-        }
-
-        /* ASCII art styling */
+        /* Enhanced quote section with advanced matrix effect */
         .ascii-art {
             font-family: 'Courier New', monospace;
             color: #00ff00;
             white-space: pre;
             font-size: 1rem;
             margin: 4rem 0;
-            opacity: 1;
             text-align: center;
             position: relative;
             min-height: 120px;
@@ -317,22 +575,9 @@
         .quote-container {
             position: relative;
             overflow: hidden;
-        }
-
-        .quote-text {
-            opacity: 0;
-            transform: translateY(0);
-            color: #00ff00 !important;
-            font-size: 1rem;
-            line-height: 1.6;
-            animation: decipherQuote 4s ease-in-out forwards;
-            animation-delay: 1s;
-        }
-
-        .quote-visible {
-            opacity: 1 !important;
-            transition: opacity 0.5s ease;
-            visibility: visible !important;
+            padding: 2rem;
+            border: 1px solid #333;
+            background: rgba(0, 255, 0, 0.02);
         }
 
         .matrix-overlay {
@@ -344,6 +589,7 @@
             background: transparent;
             overflow: hidden;
             pointer-events: none;
+            z-index: 5;
         }
 
         .matrix-char {
@@ -353,6 +599,7 @@
             font-size: 1rem;
             animation: matrixFall 2s linear forwards;
             opacity: 0;
+            text-shadow: 0 0 5px #00ff00;
         }
 
         @keyframes matrixFall {
@@ -369,81 +616,27 @@
             }
         }
 
-        @keyframes decipherQuote {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-                filter: blur(2px);
-            }
-            20% {
-                opacity: 0.3;
-                filter: blur(1px);
-            }
-             60% {
-                opacity: 0.7;
-                filter: blur(0.5px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-                filter: blur(0);
-            }
+        .quote-text {
+            color: #00ff00 !important;
+            font-size: 1rem;
+            line-height: 1.6;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+            position: relative;
+            z-index: 10;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .quote-visible {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transition: opacity 0.5s ease;
         }
 
         .typing-cursor {
-            animation: blink 1s infinite;
+            animation: advancedBlink 1s infinite;
             color: #00ff00;
-        }
-
-        /* Stats display */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            border: 1px solid #333;
-            background: rgba(0, 255, 0, 0.02);
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #00ff00;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #888;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Footer */
-        .footer {
-            border-top: 1px solid #333;
-            margin-top: 4rem;
-            padding: 2rem 0;
-            text-align: center;
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        /* Matrix-style background effect */
-        .matrix-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.03;
+            text-shadow: 0 0 10px #00ff00;
         }
 
         /* Responsive */
@@ -452,35 +645,38 @@
                 padding: 0 20px;
             }
             
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
-            
-            .section {
-                padding: 1.5rem;
-            }
-            
             .features-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .boot-sequence {
+                font-size: 0.8rem;
+                padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Matrix background -->
+    <!-- Terminal Boot Sequence -->
+    <div class="boot-sequence" id="bootSequence">
+        <div class="boot-line">INITIALIZING WEALTH PROTOCOL SYSTEMS...</div>
+        <div class="boot-line">LOADING FINANCIAL MATRIX... [OK]</div>
+        <div class="boot-line">ESTABLISHING SECURE CONNECTION... [OK]</div>
+        <div class="boot-line">DECRYPTING RICH SELF DATA... [OK]</div>
+        <div class="boot-line">TERMINAL READY FOR FINANCIAL TRANSFORMATION</div>
+        <div class="boot-line">PRESS ANY KEY TO CONTINUE...</div>
+    </div>
+
+    <!-- Enhanced Matrix background -->
     <canvas class="matrix-bg" id="matrix"></canvas>
 
     <div class="container">
         <!-- Hero Section -->
         <section class="hero">
             <div class="terminal-header">INITIATING WEALTH_PROTOCOL.EXE...</div>
-            <h1 class="main-title hero-title" style="color: #00ff00 !important; text-shadow: none !important;">Open This Envelope &<br>Change Your Net Worth<span class="blink-cursor">_</span></h1>
-            <p class="subtitle main-title" style="color: #00ff00 !important; text-shadow: none !important;">The only $10 letter that turns first-generation earners into first-generation investors.</p>
-            <div class="price-display">10.00/month</div>
+            <h1 class="main-title">Open This Envelope &<br>Change Your Net Worth<span class="blink-cursor">_</span></h1>
+            <p class="subtitle">The only $10 letter that turns first-generation earners into first-generation investors.</p>
+            <div class="price-display">$10.00/month</div>
             <a href="https://buy.stripe.com/9B67sLfkn3hL2dq1U34Ni00" class="terminal-button">EXECUTE_ORDER.EXE</a>
         </section>
 
@@ -512,15 +708,15 @@
             <h2 class="section-title">PERFORMANCE_METRICS.LOG</h2>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <span class="stat-number">92%</span>
+                    <span class="stat-number" data-target="92">0</span><span class="stat-number">%</span>
                     <span class="stat-label">Read Day Of Arrival</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">$1,237</span>
+                    <span class="stat-number">$</span><span class="stat-number" data-target="1237">0</span>
                     <span class="stat-label">Avg Saved (6 Months)</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">10min</span>
+                    <span class="stat-number" data-target="10">0</span><span class="stat-number">min</span>
                     <span class="stat-label">Time Investment</span>
                 </div>
             </div>
@@ -588,11 +784,11 @@
             </p>
         </section>
 
-        <!-- ASCII Art -->
+        <!-- Enhanced Quote with Matrix Decoding -->
         <div class="ascii-art">
             <div class="quote-container" id="quoteContainer">
                 <div class="matrix-overlay" id="matrixOverlay"></div>
-                <div class="quote-text quote-visible" id="quoteText" style="opacity: 1; visibility: visible; color: #00ff00;">
+                <div class="quote-text" id="quoteText">
 "I didn't have time to write you a short letter 
 so I wrote you a long one."
                                
@@ -603,7 +799,7 @@ so I wrote you a long one."
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer style="border-top: 1px solid #333; margin-top: 4rem; padding: 2rem 0; text-align: center; color: #888; font-size: 0.9rem;">
         <div class="container">
             <p>&copy; Letters To My Rich Self. All rights reserved. 2025.</p>
             <p>WE AGGRESSIVELY DEFEND OUR TRADEMARKS WITH ATTORNEYS AND SHOVELS.</p>
@@ -612,27 +808,25 @@ so I wrote you a long one."
     </footer>
 
     <script>
-        // Matrix rain effect
+        // Enhanced Matrix rain effect
         const canvas = document.getElementById('matrix');
         if (canvas) {
             const ctx = canvas.getContext('2d');
-
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
 
-            const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+            const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}$₿₿₿";
             const matrixArray = matrix.split("");
-
-            const fontSize = 10;
+            const fontSize = 14;
             const columns = canvas.width / fontSize;
-
             const drops = [];
+
             for(let x = 0; x < columns; x++) {
                 drops[x] = 1;
             }
 
             function draw() {
-                ctx.fillStyle = 'rgba(10, 10, 10, 0.04)';
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
                 ctx.fillStyle = '#00ff00';
@@ -649,29 +843,216 @@ so I wrote you a long one."
                 }
             }
 
-            setInterval(draw, 35);
+            setInterval(draw, 50);
 
-            // Resize canvas on window resize
             window.addEventListener('resize', () => {
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
             });
         }
 
-        // Terminal typing effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Quote animation variables
+        // Boot sequence removal
+        document.addEventListener('click', function() {
+            const boot = document.getElementById('bootSequence');
+            if (boot) {
+                boot.style.animation = 'bootFade 0.5s ease-out forwards';
+            }
+        });
+
+        // Section reveal on scroll
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // Counter animation for stats
+        function animateCounter(element) {
+            const target = parseInt(element.dataset.target);
+            const increment = target / 50;
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = Math.floor(current);
+                
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                }
+            }, 40);
+        }
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('[data-target]');
+                    counters.forEach(counter => {
+                        animateCounter(counter);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        document.querySelectorAll('.stats-grid').forEach(stats => {
+            statsObserver.observe(stats);
+        });
+
+        // Floating data particles
+        function createDataParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'data-particle';
+            particle.textContent = Math.random() > 0.5 ? '1' : '0';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDuration = (Math.random() * 5 + 3) + 's';
+            document.body.appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 8000);
+        }
+
+        // Create particles periodically
+        setInterval(createDataParticle, 2000);
+
+        // Enhanced button effects
+        document.querySelectorAll('.terminal-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Create multiple ripple effects
+                for (let i = 0; i < 3; i++) {
+                    setTimeout(() => {
+                        const ripple = document.createElement('span');
+                        const rect = this.getBoundingClientRect();
+                        const size = Math.max(rect.width, rect.height) * 2;
+                        const x = e.clientX - rect.left - size / 2;
+                        const y = e.clientY - rect.top - size / 2;
+                        
+                        ripple.style.cssText = `
+                            position: absolute;
+                            width: ${size}px;
+                            height: ${size}px;
+                            left: ${x}px;
+                            top: ${y}px;
+                            background: rgba(0, 255, 0, 0.3);
+                            border-radius: 50%;
+                            transform: scale(0);
+                            animation: ripple 0.8s ease-out;
+                            pointer-events: none;
+                        `;
+                        
+                        this.appendChild(ripple);
+                        
+                        setTimeout(() => {
+                            ripple.remove();
+                        }, 800);
+                    }, i * 100);
+                }
+
+                // Screen flash effect
+                const flash = document.createElement('div');
+                flash.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100vw;
+                    height: 100vh;
+                    background: #00ff00;
+                    opacity: 0.1;
+                    pointer-events: none;
+                    z-index: 9999;
+                    animation: flash 0.2s ease-out;
+                `;
+                
+                document.body.appendChild(flash);
+                
+                setTimeout(() => {
+                    flash.remove();
+                }, 200);
+            });
+
+            // Enhanced hover effect
+            button.addEventListener('mouseenter', function() {
+                this.style.textShadow = '0 0 10px #00ff00';
+            });
+
+            button.addEventListener('mouseleave', function() {
+                this.style.textShadow = 'none';
+            });
+        });
+
+        // Add CSS animations via JavaScript
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(1);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes flash {
+                0% { opacity: 0.2; }
+                50% { opacity: 0.1; }
+                100% { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Parallax effect for sections
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            if (canvas) {
+                canvas.style.transform = `translateY(${rate}px)`;
+            }
+
+            // Parallax for floating elements
+            document.querySelectorAll('.data-particle').forEach((particle, index) => {
+                const speed = (index % 3 + 1) * 0.1;
+                particle.style.transform += ` translateX(${scrolled * speed}px)`;
+            });
+        });
+
+        // Automatic boot sequence removal after timeout
+        setTimeout(() => {
+            const boot = document.getElementById('bootSequence');
+            if (boot) {
+                boot.style.display = 'none';
+            }
+        }, 6000);
+
+        // Enhanced typing effect for terminal header
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('.terminal-header');
+            if (header) {
+                header.style.animationPlayState = 'running';
+            }
+
+            // Mark Twain Quote Matrix Effect
             let quoteAnimationTriggered = false;
 
-            // Matrix effect for quote
-            function createMatrixEffect() {
+            // Enhanced Matrix effect for quote
+            function createQuoteMatrixEffect() {
                 const overlay = document.getElementById('matrixOverlay');
                 
                 // Clear any existing characters
                 overlay.innerHTML = '';
                 
-                // Create random matrix characters
-                for (let i = 0; i < 100; i++) {
+                // Create enhanced matrix characters
+                for (let i = 0; i < 150; i++) {
                     setTimeout(() => {
                         const char = document.createElement('span');
                         char.className = 'matrix-char';
@@ -679,6 +1060,7 @@ so I wrote you a long one."
                         char.style.left = Math.random() * 100 + '%';
                         char.style.top = '0px';
                         char.style.animationDelay = Math.random() * 1 + 's';
+                        char.style.fontSize = (Math.random() * 0.5 + 0.8) + 'rem';
                         overlay.appendChild(char);
                         
                         // Remove character after animation
@@ -687,23 +1069,19 @@ so I wrote you a long one."
                                 char.parentNode.removeChild(char);
                             }
                         }, 3000);
-                    }, i * 20);
+                    }, i * 15);
                 }
             }
 
-            // Decoding text effect
-            function decodeText() {
+            // Advanced decoding text effect
+            function decodeQuoteText() {
                 const quoteElement = document.getElementById('quoteText');
                 const originalText = `"I didn't have time to write you a short letter 
 so I wrote you a long one."
                                
                                -Mark Twain`;
                 
-                // First, show the original text immediately
-                quoteElement.textContent = originalText;
-                
-                // Store the original text to restore later
-                const finalText = originalText;
+                // First, show scrambled text
                 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
                 let iterations = 0;
                 const maxIterations = originalText.length;
@@ -724,23 +1102,23 @@ so I wrote you a long one."
                     
                     quoteElement.textContent = currentText;
                     
-                    iterations += 2.5; // Much faster iteration
+                    iterations += 2.5; // Fast iteration
                     
                     if (iterations >= maxIterations) {
                         clearInterval(interval);
-                        // Final display with cursor - ensure it shows the complete text
-                        quoteElement.innerHTML = finalText + '<span class="typing-cursor">_</span>';
+                        // Final display with enhanced cursor
+                        quoteElement.innerHTML = originalText + '<span class="typing-cursor">_</span>';
                     }
                 }, 30);
             }
 
-            // Intersection Observer for quote animation
+            // Quote intersection observer with enhanced effects
             const quoteObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting && !quoteAnimationTriggered) {
                         quoteAnimationTriggered = true;
                         
-                        // Make quote visible first
+                        // Make quote visible with fade in
                         const quoteText = document.getElementById('quoteText');
                         if (quoteText) {
                             quoteText.classList.add('quote-visible');
@@ -748,18 +1126,18 @@ so I wrote you a long one."
                             quoteText.style.visibility = 'visible';
                         }
                         
-                        // Start matrix effect immediately
-                        createMatrixEffect();
+                        // Start enhanced matrix effect immediately
+                        createQuoteMatrixEffect();
                         
-                        // Start decoding after matrix effect begins
+                        // Start decoding after brief delay
                         setTimeout(() => {
-                            decodeText();
-                        }, 500);
+                            decodeQuoteText();
+                        }, 800);
                     }
                 });
             }, {
-                threshold: 0.1, // Trigger when 10% of the quote is visible
-                rootMargin: '50px'
+                threshold: 0.3, // Trigger when 30% visible
+                rootMargin: '0px'
             });
 
             // Observe the quote container
@@ -767,49 +1145,6 @@ so I wrote you a long one."
             if (quoteContainer) {
                 quoteObserver.observe(quoteContainer);
             }
-
-            // Button click effects
-            document.querySelectorAll('.terminal-button').forEach(button => {
-                button.addEventListener('click', function(e) {
-                    // Create terminal flash effect
-                    const flash = document.createElement('div');
-                    flash.style.cssText = `
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        width: 100vw;
-                        height: 100vh;
-                        background: #00ff00;
-                        opacity: 0.1;
-                        pointer-events: none;
-                        z-index: 9999;
-                    `;
-                    
-                    document.body.appendChild(flash);
-                    
-                    setTimeout(() => {
-                        flash.remove();
-                    }, 100);
-                    
-                    // Add terminal beep sound effect (visual)
-                    this.style.boxShadow = '0 0 30px #00ff00';
-                    setTimeout(() => {
-                        this.style.boxShadow = '';
-                    }, 200);
-                });
-            });
-
-            // Scrolling effects
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const rate = scrolled * -0.5;
-                
-                // Parallax effect on matrix background
-                const canvas = document.getElementById('matrix');
-                if (canvas) {
-                    canvas.style.transform = `translateY(${rate}px)`;
-                }
-            });
         });
     </script>
 </body>

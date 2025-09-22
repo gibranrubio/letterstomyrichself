@@ -37,7 +37,7 @@
     .btn.prime{background:var(--ink);color:#fff;border-color:var(--ink)}
     .btn.ghost{border-color:#bbb;color:#333}
 
-    /* Floating mobile CTA */
+    /* Floating mobile CTA (unused now that the button is removed) */
     .float-cta{
       position: fixed;
       left: 16px; right: 16px; bottom: 16px;
@@ -51,8 +51,8 @@
     }
     .float-cta:hover{ transform: translateY(-1px) }
     @media (max-width: 640px){
-      body{ padding-bottom: 84px } /* keep content above the floating button */
-      .float-cta{ display: inline-flex }
+      /* you can remove this padding since the float button is gone */
+      body{ padding-bottom: 84px }
     }
 
     /* email card hero */
@@ -166,7 +166,7 @@
           <p>Twenty four letters for the year plus a welcome kit.</p>
           <p><strong>$99</strong> per year</p>
           <a class="btn" href="https://buy.stripe.com/9B67sLfkn3hL2dq1U34Ni00" target="_blank" rel="noopener noreferrer">Subscribe yearly</a>
-          <p class="kicker" style="margin-top:10px">Save $21 versus monthly (18 percent). Best value. Gift ready. Checkout opens in a new tab.</p>
+          <p class="kicker" style="margin-top:10px">Save $21 versus monthly (17.5 percent). Best value. Gift ready. Checkout opens in a new tab.</p>
         </div>
       </div>
     </section>
@@ -215,9 +215,6 @@
   <!-- Keep the current year fresh -->
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 
-  <!-- Floating mobile Subscribe button -->
-  <a class="float-cta"
-     href="https://buy.stripe.com/9B67sLfkn3hL2dq1U34Ni00"
-     target="_blank" rel="noopener noreferrer">Subscribe</a>
+  <!-- Floating mobile Subscribe button removed (step one) -->
 </body>
 </html>

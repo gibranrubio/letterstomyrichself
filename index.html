@@ -1,221 +1,114 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <title>Letters To My Rich Self</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Letters to My Rich Self | Print Letters From Your Future Self</title>
-  <meta name="description" content="Biweekly print letters from your future self. Learn from Munger, Getty, Seinfeld, Howard Marks and more. Read slowly. Act deliberately." />
+  <meta name="description" content="A monthly printed letter for founders who want one quiet hour to think about money, work, and life." />
   <style>
-    :root{
-      --bg:#f6f4ef; /* warm paper */
-      --ink:#111;
-      --muted:#636363;
-      --accent:#0a7d3b; /* quiet green */
-      --link:#0a63bd;
-      --card:#ffffff;
-      --border:#e6e1d8;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f9fafb;
+      color: #111827;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
-    .wrap{max-width:980px;margin:0 auto;padding:32px 20px 80px}
-
-    /* Sticky header */
-    header{
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(246,244,239,.9);
-      backdrop-filter: saturate(180%) blur(8px);
-      display:flex;align-items:center;justify-content:space-between;
-      margin-bottom:20px;
-      transition: box-shadow .2s ease;
+    .page {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
     }
-    header.scrolled{ box-shadow: 0 8px 24px rgba(17,17,17,.08), 0 1px 0 rgba(17,17,17,.06) }
-    .brand{font-weight:700;letter-spacing:.2px}
-    .btn{display:inline-block;border:1px solid var(--ink);padding:10px 14px;border-radius:10px;text-decoration:none;color:var(--ink);transition:transform .06s ease, background .2s}
-    .btn:hover{transform:translateY(-1px);background:#fff}
-    .btn.prime{background:var(--ink);color:#fff;border-color:var(--ink)}
-    .btn.ghost{border-color:#bbb;color:#333}
-
-    /* Floating mobile CTA (unused now that the button is removed) */
-    .float-cta{
-      position: fixed;
-      left: 16px; right: 16px; bottom: 16px;
-      display: none;
-      justify-content: center; align-items: center;
-      padding: 14px 18px; border-radius: 999px;
-      background: var(--ink); color: #fff; text-decoration: none;
-      border: 1px solid var(--ink);
-      box-shadow: 0 12px 30px rgba(17,17,17,.15);
-      transition: transform .06s ease, background .2s;
+    .wrap {
+      max-width: 560px;
+      width: 100%;
     }
-    .float-cta:hover{ transform: translateY(-1px) }
-    @media (max-width: 640px){
-      /* you can remove this padding since the float button is gone */
-      body{ padding-bottom: 84px }
+    h1 {
+      font-size: 28px;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      font-weight: 600;
+      text-transform: lowercase;
     }
-
-    /* email card hero */
-    .email{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:0 10px 30px rgba(17,17,17,.06);overflow:hidden}
-    .email-bar{display:flex;gap:10px;align-items:center;padding:12px 14px;background:#fbfaf7;border-bottom:1px solid var(--border)}
-    .dot{width:10px;height:10px;border-radius:50%}
-    .dot.red{background:#ff5f57}.dot.yellow{background:#ffbd2f}.dot.green{background:#28c840}
-    .email-head{padding:16px;border-bottom:1px solid var(--border);font-size:15px}
-    .kv{display:grid;grid-template-columns:120px 1fr;gap:10px 16px}
-    .kv strong{color:var(--muted);font-weight:600}
-    .subject{font-weight:700}
-    .email-body{padding:22px 18px 26px}
-    .email-body h1{font-size:28px;margin:0 0 6px}
-    .email-body p{margin:10px 0}
-    .tldr{display:flex;gap:10px;align-items:flex-start;background:#f9f8f4;border:1px dashed var(--border);padding:12px 12px;border-radius:12px;margin:12px 0}
-    .badge{font-size:12px;font-weight:700;background:#eef7ee;color:#165b31;border:1px solid #cfe6cf;padding:2px 8px;border-radius:999px}
-
-    /* sections */
-    section{margin-top:42px}
-    h2{font-size:24px;margin:0 0 12px}
-    .grid{display:grid;gap:16px}
-    @media(min-width:800px){
-      .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-      .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 14px;
     }
-    .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px}
-    .kicker{color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-size:12px}
-    .mono{font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
+    .offer {
+      font-weight: 500;
+      margin-top: 10px;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 18px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: none;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      background: #111827;
+      color: #f9fafb;
+      text-decoration: none;
+    }
+    .cta:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+    .tiny-note {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 18px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+    footer a {
+      color: #6b7280;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">Letters to My Rich Self</div>
-      <nav>
-        <a class="btn ghost" href="#faq">FAQ</a>
-        <a class="btn" href="https://buy.stripe.com/9B67sLfkn3hL2dq1U34Ni00" target="_blank" rel="noopener noreferrer">Subscribe</a>
-      </nav>
-    </header>
+  <div class="page">
+    <main class="wrap">
+      <h1>if you are a founder who never has time to think, you will love this letter.</h1>
 
-    <div class="email">
-      <div class="email-bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
-      <div class="email-head">
-        <div class="kv">
-          <strong>To:</strong><div>You</div>
-          <strong>From:</strong><div>Your future, wealthier self</div>
-          <strong>Subject:</strong><div class="subject">Let us build real wealth the slow way</div>
-        </div>
-      </div>
-      <div class="email-body">
-        <h1>Think better. Earn better.</h1>
-        <p class="tldr"><span class="badge mono">TL;DR</span> Biweekly print letters that teach wealth through stories. Munger, Getty, Seinfeld, Howard Marks and more. Written as guidance from your future self. No feeds. No doomscrolling. Just paper, clarity, and action.</p>
-        <p>Social media blasts noise all day. These letters move at a human pace. You open an envelope. You sit with it. You mark it up. You try one idea in real life. Then another.</p>
-        <div class="cta">
-          <a class="btn prime" id="subscribe"
-             href="https://buy.stripe.com/9B67sLfkn3hL2dq1U34Ni00"
-             target="_blank" rel="noopener noreferrer">Start your letters</a>
-          <a class="btn" href="#how">How it works</a>
-        </div>
-      </div>
-    </div>
+      <p>hey, gibran here.<br>
+      I run a few businesses and every month I write a printed letter called <strong>Letters To My Rich Self</strong>.</p>
 
-    <section id="how">
-      <h2>How it works</h2>
-      <div class="grid cols-3">
-        <div class="card"><div class="kicker">1</div><h3>Two letters per month</h3><p>On the second and fourth week you get a sealed letter. Each one distills a single lesson and a small action you can do this week.</p></div>
-        <div class="card"><div class="kicker">2</div><h3>Mentors by mail</h3><p>We study the greats so you do not have to. Charlie Munger on judgment. Howard Marks on risk. J. Paul Getty on optimism and deal flow. Seinfeld on craft and consistency.</p></div>
-        <div class="card"><div class="kicker">3</div><h3>Read slow, apply fast</h3><p>Each letter ends with a field note. One concrete step. Build a tiny habit. Track it. Let compounding do what it does best.</p></div>
-      </div>
-    </section>
+      <p>it is one hour of slow, analog thinking time for founders. no podcast. no inbox. no slack. just you and one strong idea.</p>
 
-    <section id="what">
-      <h2>What you get</h2>
-      <div class="grid cols-3">
-        <div class="card">
-          <h3>Printed letters</h3>
-          <p>Thick paper you can underline and keep. Delivered on a steady rhythm so you can build focus.</p>
-        </div>
-        <div class="card">
-          <h3>One pager summaries</h3>
-          <p>A crisp recap for your desk. Stick it on the wall. Share it with a friend.</p>
-        </div>
-        <div class="card">
-          <h3>Member notes</h3>
-          <p>Optional private group to share what you tried and what worked. Real tactics from real people.</p>
-        </div>
-      </div>
-    </section>
+      <p>each letter feels like a rich uncle Charlie Munger sitting you down and giving you one lesson about money, work, and life. the stuff I am learning from great founders and investors, tested in my own companies, written like I am talking directly to you.</p>
 
-    <section id="for">
-      <h2>Who it is for</h2>
-      <div class="grid cols-3">
-        <div class="card"><h3>First time builders</h3><p>You want clear, low drama principles for money, career, and ownership.</p></div>
-        <div class="card"><h3>Busy operators</h3><p>You run a business or side project and prefer signal over noise.</p></div>
-        <div class="card"><h3>Lifelong learners</h3><p>You collect models. You value paper and you like ideas that survive fads.</p></div>
-      </div>
-    </section>
+      <p>if you actually read it, one letter can change how you run your business and your life.</p>
 
-    <section id="pricing">
-      <h2>Plans</h2>
-      <div class="grid cols-2">
-        <div class="card">
-          <h3>Monthly</h3>
-          <p>Two letters per month. Cancel anytime.</p>
-          <p><strong>$10</strong> per month</p>
-          <a class="btn prime" href="https://buy.stripe.com/9B67sLfkn3hL2dq1U34Ni00" target="_blank" rel="noopener noreferrer">Subscribe monthly</a>
-          <p class="kicker" style="margin-top:10px">Pause anytime. Ships worldwide. US first class. Checkout opens in a new tab.</p>
-        </div>
-        <div class="card">
-          <h3>Annual</h3>
-          <p>Twenty four letters for the year plus a welcome kit.</p>
-          <p><strong>$99</strong> per year</p>
-          <a class="btn" href="https://buy.stripe.com/9B67sLfkn3hL2dq1U34Ni00" target="_blank" rel="noopener noreferrer">Subscribe yearly</a>
-          <p class="kicker" style="margin-top:10px">Save $21 versus monthly (17.5 percent). Best value. Gift ready. Checkout opens in a new tab.</p>
-        </div>
-      </div>
-    </section>
+      <p class="offer">one printed letter, once a month. $10. cancel anytime.</p>
 
-    <section id="samples">
-      <h2>Sample topics</h2>
-      <div class="grid cols-3">
-        <div class="card"><h3>Munger: Deserve first</h3><p>Deliver what you would buy if you were the customer. Build trust that compounds.</p></div>
-        <div class="card"><h3>Marks: Risk literacy</h3><p>Return means nothing without the risk taken. Learn to size bets like a pro.</p></div>
-        <div class="card"><h3>Getty: Optimism as duty</h3><p>Opportunity follows action. Relationships create nonlinear upside.</p></div>
-      </div>
-    </section>
+      <a class="cta" href="https://buy.stripe.com/9B67sLfkn3hL2dq1U34Ni00">
+        get the next letter
+      </a>
 
-    <section id="faq" class="faq">
-      <h2>FAQ</h2>
-      <details>
-        <summary>What exactly arrives in the mail</summary>
-        <p>Every two weeks you get a sealed letter and a one page recap. Some months include inserts like checklists or habit cards.</p>
-      </details>
-      <details>
-        <summary>Can I gift this</summary>
-        <p>Yes. Choose Gift at checkout and add the recipient address. We include a simple welcome card.</p>
-      </details>
-      <details>
-        <summary>Is there a digital version</summary>
-        <p>We are print first. Members also get a private PDF backup after each mailing.</p>
-      </details>
-      <details>
-        <summary>Where do you ship</summary>
-        <p>Worldwide from the United States. Delivery times vary by country.</p>
-      </details>
-    </section>
-
-    <footer>
-      <p>© <span id="y"></span> Letters to My Rich Self. Built in Austin for people who like paper and progress. <a href="#">Privacy</a> • <a href="#">Terms</a></p>
-    </footer>
+      <p class="tiny-note">
+        ships once a month. read time about one hour.
+      </p>
+    </main>
   </div>
 
-  <!-- Header shadow on scroll -->
-  <script>
-    const h = document.querySelector('header');
-    function onScroll(){ h.classList.toggle('scrolled', window.scrollY > 4); }
-    onScroll(); window.addEventListener('scroll', onScroll);
-  </script>
-
-  <!-- Keep the current year fresh -->
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
-
-  <!-- Floating mobile Subscribe button removed (step one) -->
+  <footer>
+    <a href="/" target="_blank">a gibran rubio thing</a>
+  </footer>
 </body>
 </html>
-

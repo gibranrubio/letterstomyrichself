@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<script async src="https://js.stripe.com/v3/buy-button.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -156,45 +157,6 @@
     margin-bottom: 2.5rem;
     line-height: 1.7;
   }
-
-  .email-form {
-    display: flex;
-    gap: 0;
-    max-width: 460px;
-    border: 1px solid var(--border-mid);
-    border-radius: 3px;
-    overflow: hidden;
-    margin-bottom: 0.75rem;
-  }
-
-  .email-form input {
-    flex: 1;
-    font-family: 'Lora', serif;
-    font-size: 15px;
-    padding: 13px 16px;
-    border: none;
-    background: rgba(255,255,255,0.6);
-    color: var(--ink);
-    outline: none;
-  }
-
-  .email-form input::placeholder { color: var(--ink-muted); }
-
-  .email-form button {
-    font-family: 'Special Elite', monospace;
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    background: var(--ink);
-    color: var(--cream);
-    border: none;
-    padding: 13px 22px;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: background 0.2s;
-  }
-
-  .email-form button:hover { background: var(--ink-mid); }
 
   .hero-fine {
     font-family: 'Special Elite', monospace;
@@ -631,44 +593,6 @@
     line-height: 1.6;
   }
 
-  .email-form-lg {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .email-form-lg input {
-    font-family: 'Lora', serif;
-    font-size: 15px;
-    padding: 13px 16px;
-    border: 1px solid var(--border-mid);
-    border-radius: 2px;
-    background: rgba(255,255,255,0.5);
-    color: var(--ink);
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .email-form-lg input:focus { border-color: var(--gold); }
-
-  .email-form-lg input::placeholder { color: var(--ink-muted); }
-
-  .btn-full {
-    font-family: 'Special Elite', monospace;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    background: var(--ink);
-    color: var(--cream);
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: background 0.2s;
-  }
-
-  .btn-full:hover { background: var(--gold); }
-
   .form-note {
     font-family: 'Special Elite', monospace;
     font-size: 10px;
@@ -704,7 +628,15 @@
     text-align: right;
   }
 
-  /* ── ANIMATIONS ── */
+  .stripe-wrap {
+    margin-bottom: 0.75rem;
+  }
+
+  .stripe-wrap stripe-buy-button {
+    display: block;
+  }
+
+
   .fade-up {
     opacity: 0;
     transform: translateY(24px);
@@ -744,7 +676,7 @@
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">Letters to My Rich Self</a>
-  <a class="nav-cta" href="#waitlist">Join the waitlist</a>
+  <a class="nav-cta" href="#subscribe">Subscribe — $9/mo</a>
 </nav>
 
 <!-- HERO -->
@@ -758,11 +690,13 @@
 
   <p class="hero-sub">12 letters. One year. The money stuff nobody in your family ever explained — written by the person you're trying to become.</p>
 
-  <div class="email-form" id="waitlist">
-    <input type="email" placeholder="your@email.com" id="hero-email" />
-    <button onclick="handleSignup('hero-email')">Join waitlist</button>
+  <div class="stripe-wrap" id="waitlist">
+    <stripe-buy-button
+      buy-button-id="buy_btn_1THX9iFbHd80r8lGs1qEdac0"
+      publishable-key="pk_live_51IrR2KFbHd80r8lGpcU8gMYyUL4EoQKRugae0R3fLz7yhYYTcc8ysNu2L6mTmQKuChMy3HNqkGcieXsd1kAjq0ws008NTAn9QC"
+    ></stripe-buy-button>
   </div>
-  <p class="hero-fine">$9 / month &nbsp;·&nbsp; USPS forever mail &nbsp;·&nbsp; Cancel anytime</p>
+  <p class="hero-fine">$9 / month &nbsp;·&nbsp; USPS forever mail &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp; Not financial advice</p>
 
   <div class="hero-scroll">
     <div class="scroll-line"></div>
@@ -987,11 +921,13 @@
     </div>
     <p class="price-desc">12 letters. One per month. Shipped via USPS to your door. Also makes an unforgettable gift for anyone in your life who needs to hear this.</p>
 
-    <div class="email-form-lg">
-      <input type="email" placeholder="your@email.com" id="final-email" />
-      <button class="btn-full" onclick="handleSignup('final-email')">Join the waitlist &rarr;</button>
-      <p class="form-note">Not financial advice &nbsp;·&nbsp; Just the letter you needed</p>
+    <div class="stripe-wrap">
+      <stripe-buy-button
+        buy-button-id="buy_btn_1THX9iFbHd80r8lGs1qEdac0"
+        publishable-key="pk_live_51IrR2KFbHd80r8lGpcU8gMYyUL4EoQKRugae0R3fLz7yhYYTcc8ysNu2L6mTmQKuChMy3HNqkGcieXsd1kAjq0ws008NTAn9QC"
+      ></stripe-buy-button>
     </div>
+    <p class="form-note">Cancel anytime &nbsp;·&nbsp; Not financial advice &nbsp;·&nbsp; Just the letter you needed</p>
   </div>
 </section>
 
@@ -1002,19 +938,6 @@
 </footer>
 
 <script>
-  function handleSignup(inputId) {
-    const input = document.getElementById(inputId);
-    const email = input.value.trim();
-    if (!email || !email.includes('@')) {
-      input.style.borderColor = '#8B2020';
-      input.focus();
-      return;
-    }
-    input.style.borderColor = '#9B7A2F';
-    input.value = '';
-    input.placeholder = 'You\'re on the list. More soon.';
-    input.disabled = true;
-  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {

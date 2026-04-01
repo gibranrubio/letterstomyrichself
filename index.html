@@ -1,138 +1,1033 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Letters To My Rich Self</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="A monthly printed letter for investing for normal ambitious people who want to build wealth without becoming day traders, doom scrollers, or finance bros ✉️"
-  />
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Letters to My Rich Self</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f9fafb;
-      color: #111827;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+  :root {
+    --cream: #F4EFE3;
+    --cream-dark: #EAE2CF;
+    --ink: #1C1409;
+    --ink-mid: #3D2E14;
+    --ink-muted: #7A6444;
+    --gold: #9B7A2F;
+    --gold-light: #C9A84C;
+    --gold-pale: #F0E3BC;
+    --red-stamp: #8B2020;
+    --border: rgba(28, 20, 9, 0.12);
+    --border-mid: rgba(28, 20, 9, 0.2);
+  }
 
-    .page {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
+  html { scroll-behavior: smooth; }
 
-    .wrap {
-      max-width: 560px;
-      width: 100%;
-    }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
 
-    h1 {
-      font-size: 28px;
-      line-height: 1.25;
-      margin-bottom: 16px;
-      font-weight: 600;
-      text-transform: lowercase;
-    }
+  /* ── TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
 
-    p {
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 14px;
-    }
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 2.5rem;
+    background: rgba(244, 239, 227, 0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--border);
+  }
 
-    .offer {
-      font-weight: 500;
-      margin-top: 10px;
-    }
+  .nav-logo {
+    font-family: 'Special Elite', monospace;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    color: var(--ink);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
 
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 18px;
-      padding: 12px 22px;
-      border-radius: 999px;
-      border: none;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      background: #111827;
-      color: #f9fafb;
-      text-decoration: none;
-      transition: transform 0.15s ease, opacity 0.15s ease;
-    }
+  .nav-cta {
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--cream);
+    background: var(--ink);
+    border: none;
+    padding: 9px 20px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--ink-mid); }
 
-    .cta:hover {
-      opacity: 0.95;
-      transform: translateY(-1px);
-    }
+  /* ── POSTMARK STAMP ── */
+  .stamp-badge {
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red-stamp);
+    border: 1.5px solid var(--red-stamp);
+    border-radius: 50%;
+    width: 84px;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.3;
+    opacity: 0.75;
+    transform: rotate(-12deg);
+    flex-shrink: 0;
+  }
 
-    .tiny-note {
-      font-size: 12px;
-      color: #6b7280;
-      margin-top: 8px;
-    }
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 2.5rem 5rem;
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
 
-    footer {
-      text-align: center;
-      padding: 18px;
-      font-size: 13px;
-      color: #6b7280;
-    }
+  .hero-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
 
-    footer a {
-      color: #6b7280;
-      text-decoration: none;
-    }
+  .hero-eyebrow {
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(42px, 7vw, 84px);
+    line-height: 1.08;
+    font-weight: 400;
+    color: var(--ink);
+    max-width: 820px;
+    margin-bottom: 1.75rem;
+    letter-spacing: -0.5px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--ink-muted);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .email-form {
+    display: flex;
+    gap: 0;
+    max-width: 460px;
+    border: 1px solid var(--border-mid);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+  }
+
+  .email-form input {
+    flex: 1;
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    padding: 13px 16px;
+    border: none;
+    background: rgba(255,255,255,0.6);
+    color: var(--ink);
+    outline: none;
+  }
+
+  .email-form input::placeholder { color: var(--ink-muted); }
+
+  .email-form button {
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    padding: 13px 22px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+
+  .email-form button:hover { background: var(--ink-mid); }
+
+  .hero-fine {
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 1px;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 0.5px;
+    background: var(--ink-muted);
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    border: none;
+    border-top: 0.5px solid var(--border);
+  }
+
+  /* ── LETTER SECTION ── */
+  .letter-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .section-label {
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  .section-body {
+    color: var(--ink-muted);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .letter-card {
+    background: #FDFAF3;
+    border: 0.5px solid var(--border-mid);
+    border-radius: 2px;
+    padding: 2.25rem 2.5rem;
+    position: relative;
+    box-shadow: 4px 6px 0px rgba(28, 20, 9, 0.06);
+  }
+
+  .letter-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 2px 2px 0 0;
+  }
+
+  .letter-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .letter-number {
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .letter-date {
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    color: var(--ink-muted);
+    letter-spacing: 1px;
+  }
+
+  .letter-body {
+    font-family: 'Special Elite', monospace;
+    font-size: 13.5px;
+    line-height: 2;
+    color: var(--ink-mid);
+  }
+
+  .letter-body strong {
+    color: var(--ink);
+    font-weight: 400;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .letter-sig {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 0.5px solid var(--border);
+    font-family: 'Special Elite', monospace;
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+
+  /* ── MATH SECTION ── */
+  .math-section {
+    background: var(--ink);
+    padding: 6rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .math-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .math-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .math-section .section-label { color: var(--gold-light); }
+
+  .math-section .section-title { color: var(--cream); }
+
+  .math-section .section-body { color: rgba(244,239,227,0.6); }
+
+  .rule72 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(60px, 12vw, 140px);
+    font-weight: 400;
+    color: var(--gold-light);
+    line-height: 0.9;
+    letter-spacing: -2px;
+    margin: 2rem 0;
+    opacity: 0.9;
+  }
+
+  .rule72 span {
+    font-family: 'Special Elite', monospace;
+    font-size: clamp(14px, 2vw, 20px);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(244,239,227,0.5);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .doubling-table {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: rgba(244,239,227,0.08);
+    border: 0.5px solid rgba(244,239,227,0.12);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 3rem;
+  }
+
+  .dt-cell {
+    background: rgba(28, 20, 9, 0.4);
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+  }
+
+  .dt-cell.header {
+    background: rgba(244,239,227,0.06);
+    padding: 0.75rem 1.25rem;
+  }
+
+  .dt-year {
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(244,239,227,0.4);
+    margin-bottom: 0.5rem;
+  }
+
+  .dt-amount {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(18px, 2.5vw, 26px);
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .dt-cell:last-child .dt-amount { color: var(--gold-light); }
+
+  .dt-note {
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    color: rgba(244,239,227,0.35);
+    margin-top: 0.5rem;
+  }
+
+  /* ── STORY SECTION ── */
+  .story-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .story-sidebar {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .story-pull {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.3;
+    color: var(--gold);
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .story-body { color: var(--ink-muted); }
+
+  .story-body p { margin-bottom: 1.25rem; font-size: 16px; line-height: 1.85; }
+
+  .story-body p strong { color: var(--ink); font-weight: 500; }
+
+  /* ── 12 LETTERS ── */
+  .letters-section {
+    background: var(--cream-dark);
+    padding: 6rem 2.5rem;
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .letters-inner { max-width: 1100px; margin: 0 auto; }
+
+  .letters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+  }
+
+  .letters-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .letter-item {
+    background: var(--cream-dark);
+    padding: 1.5rem 1.75rem;
+    transition: background 0.2s;
+  }
+
+  .letter-item:hover { background: var(--cream); }
+
+  .letter-num {
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .letter-title {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+  }
+
+  .letter-desc {
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 2.5rem;
+  }
+
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+
+  .how-step-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 64px;
+    font-weight: 400;
+    color: var(--gold-pale);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .how-step-title {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .how-step-body { font-size: 15px; color: var(--ink-muted); line-height: 1.7; }
+
+  /* ── BUFFETT QUOTE ── */
+  .quote-section {
+    background: var(--gold-pale);
+    border-top: 0.5px solid rgba(155, 122, 47, 0.25);
+    border-bottom: 0.5px solid rgba(155, 122, 47, 0.25);
+    padding: 5rem 2.5rem;
+    text-align: center;
+  }
+
+  .buffett-quote {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(22px, 3.5vw, 40px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink);
+    max-width: 760px;
+    margin: 0 auto 1rem;
+    line-height: 1.35;
+  }
+
+  .buffett-attr {
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 7rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .final-cta h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 4.5vw, 56px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+
+  .final-cta h2 em { font-style: italic; color: var(--gold); }
+
+  .final-right { }
+
+  .final-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .price-amount {
+    font-family: 'DM Serif Display', serif;
+    font-size: 52px;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .price-period {
+    font-family: 'Special Elite', monospace;
+    font-size: 13px;
+    color: var(--ink-muted);
+    letter-spacing: 1px;
+  }
+
+  .price-desc {
+    font-size: 14px;
+    color: var(--ink-muted);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .email-form-lg {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .email-form-lg input {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    padding: 13px 16px;
+    border: 1px solid var(--border-mid);
+    border-radius: 2px;
+    background: rgba(255,255,255,0.5);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .email-form-lg input:focus { border-color: var(--gold); }
+
+  .email-form-lg input::placeholder { color: var(--ink-muted); }
+
+  .btn-full {
+    font-family: 'Special Elite', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .btn-full:hover { background: var(--gold); }
+
+  .form-note {
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--ink-muted);
+    text-align: center;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-logo {
+    font-family: 'Special Elite', monospace;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .footer-note {
+    font-family: 'Special Elite', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--ink-muted);
+    text-align: right;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.25rem; }
+    .hero { padding: 7rem 1.25rem 4rem; }
+    .hero h1 { font-size: 38px; }
+    .hero-top { flex-direction: column; gap: 1rem; }
+    .letter-section { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.25rem; }
+    .story-section { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.25rem; }
+    .story-sidebar { position: static; }
+    .how-steps { grid-template-columns: 1fr; gap: 2rem; }
+    .letters-grid { grid-template-columns: 1fr; }
+    .letters-header { flex-direction: column; gap: 1rem; }
+    .final-cta { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.25rem; }
+    .doubling-table { grid-template-columns: repeat(3, 1fr); }
+    .dt-cell:nth-child(4), .dt-cell:nth-child(5) { display: none; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .footer-note { text-align: center; }
+    .math-section { padding: 4rem 1.25rem; }
+    .how-section, .letters-section { padding: 4rem 1.25rem; }
+    .quote-section { padding: 3.5rem 1.25rem; }
+  }
+</style>
 </head>
 <body>
-  <div class="page">
-    <main class="wrap">
-      <h1>if you have always been afraid of not having enough money or savings and want to invest but think it's too late, you'll love this letter.</h1>
 
-      <p>
-        hey, gibran here.<br />
-        I run a few businesses and every month I write a printed letter called <strong>Letters To My Rich Self</strong>.
-      </p>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Letters to My Rich Self</a>
+  <a class="nav-cta" href="#waitlist">Join the waitlist</a>
+</nav>
 
-      <p>
-        it is one moment a month of slow, analog thinking about your financial goals, net worth, and strategy. no podcast. no inbox. no slack. just you and one strong idea: build the habit of investing monthly.
-      </p>
-
-      <p>
-        each letter feels like a rich uncle Charlie Munger sitting you down and giving you one lesson about the S&amp;P 500, why you needed to start yesterday, but the next best time is today. Compound interest is the 8th wonder of the world, and I'm not letting you miss out on it.
-      </p>
-
-      <p>
-        if you actually read it, one letter can change how you run your savings and life.
-      </p>
-
-      <p class="offer">one printed letter, once a month. $11. cancel anytime.</p>
-
-      <a class="cta" href="https://buy.stripe.com/bJefZhegjaKd4ly0PZ4Ni02">
-        get the next letter
-      </a>
-
-      <p class="tiny-note">
-        ships once a month. read time about 4.2 minutes.
-      </p>
-    </main>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-top">
+    <p class="hero-eyebrow">A letter. Once a month. From your future self.</p>
+    <div class="stamp-badge">Austin<br>TX<br>·<br>Est.<br>2025</div>
   </div>
 
-  <footer>
-    <a href="/" target="_blank" rel="noopener noreferrer">a gibran rubio thing</a>
-  </footer>
+  <h1>Nobody sat me down<br>and taught me this.<br>So I'm <em>mailing it</em><br>to strangers.</h1>
+
+  <p class="hero-sub">12 letters. One year. The money stuff nobody in your family ever explained — written by the person you're trying to become.</p>
+
+  <div class="email-form" id="waitlist">
+    <input type="email" placeholder="your@email.com" id="hero-email" />
+    <button onclick="handleSignup('hero-email')">Join waitlist</button>
+  </div>
+  <p class="hero-fine">$9 / month &nbsp;·&nbsp; USPS forever mail &nbsp;·&nbsp; Cancel anytime</p>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- LETTER PREVIEW -->
+<section class="letter-section">
+  <div class="fade-up">
+    <p class="section-label">Letter No. 1</p>
+    <h2 class="section-title">The ceiling<br>was <em>a lie.</em></h2>
+    <p class="section-body">Each letter arrives as if written by your future self — the version of you who figured it out. Not a finance guru. Not Wall Street. Just you, thirty years from now, reaching back.</p>
+    <br />
+    <p class="section-body">No jargon. No stock tips. No charts you don't understand. Just the math, the mindset, and the permission you never got.</p>
+  </div>
+
+  <div class="letter-card fade-up">
+    <div class="letter-meta-row">
+      <span class="letter-number">Letter No. 01 &nbsp;/&nbsp; 12</span>
+      <span class="letter-date">Month 1</span>
+    </div>
+    <div class="letter-body">
+      <p>Dear younger me,</p>
+      <br />
+      <p>Nobody taught us this. Our parents worked themselves into the ground because that's what they knew. The richest person we knew had a good job and a paid-off car. That was the ceiling.</p>
+      <br />
+      <p><strong>But the ceiling was a lie.</strong></p>
+      <br />
+      <p>There is a number — simple, boring, almost embarrassing — that changes everything once you see it. Your money doubles approximately every 7 years in the S&P 500. You didn't need to be smart. You just needed to <em>know.</em></p>
+      <br />
+      <p>The people who built generational wealth weren't smarter than us. They just knew this earlier. They had a rich uncle who sat them down. We didn't have that.</p>
+      <br />
+      <p>So I'm being that person for you now.</p>
+    </div>
+    <div class="letter-sig">— You &nbsp;(from later)</div>
+  </div>
+</section>
+
+<!-- MATH SECTION -->
+<section class="math-section">
+  <div class="math-inner">
+    <p class="section-label">The rule of 72</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+      <div>
+        <h2 class="section-title" style="color: var(--cream);">The most boring chart<br>that will <em>change your life.</em></h2>
+        <p class="section-body" style="margin-top: 1rem;">Divide 72 by your average annual return. That's how many years it takes your money to double. The S&P 500 has averaged ~10% a year for 100 years. 72 ÷ 10 = 7.2 years.</p>
+        <p class="section-body" style="margin-top: 1rem;">You didn't pick stocks. You didn't watch the news. You just left it alone.</p>
+      </div>
+      <div>
+        <div class="rule72">
+          <span>72 ÷ 10%</span>
+          7.2 yrs
+        </div>
+        <p style="font-family: 'Special Elite', monospace; font-size: 11px; color: rgba(244,239,227,0.3); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 0.75rem;">Years to double your money</p>
+      </div>
+    </div>
+
+    <div class="doubling-table fade-up" style="margin-top: 3rem;">
+      <div class="dt-cell">
+        <div class="dt-year">Today</div>
+        <div class="dt-amount">$10,000</div>
+        <div class="dt-note">you invest</div>
+      </div>
+      <div class="dt-cell">
+        <div class="dt-year">Year 7</div>
+        <div class="dt-amount">$20,000</div>
+        <div class="dt-note">first double</div>
+      </div>
+      <div class="dt-cell">
+        <div class="dt-year">Year 14</div>
+        <div class="dt-amount">$40,000</div>
+        <div class="dt-note">second double</div>
+      </div>
+      <div class="dt-cell">
+        <div class="dt-year">Year 21</div>
+        <div class="dt-amount">$80,000</div>
+        <div class="dt-note">third double</div>
+      </div>
+      <div class="dt-cell">
+        <div class="dt-year">Year 35</div>
+        <div class="dt-amount" style="color: var(--gold-light);">$320,000</div>
+        <div class="dt-note">you did nothing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY SECTION -->
+<section class="story-section">
+  <div class="story-sidebar fade-up">
+    <p class="section-label">The story</p>
+    <div class="story-pull">"Nobody in my family understood investing. $70k a year was the dream."</div>
+  </div>
+  <div class="story-body fade-up">
+    <p>My parents were immigrants. They worked themselves into the ground — because that's what they knew. Clock in, clock out, survive. The idea that your money could work while you slept? That conversation never happened at our table.</p>
+    <p>The richest person I knew growing up made $70,000 a year. That was it. That was the ceiling. We didn't know about compound interest. We didn't know about index funds. We didn't know that time in the market — not picking the right stock — is the only game that actually matters.</p>
+    <p><strong>I'm 30 now.</strong> And I ran the math. I saw what I could have had if someone had sat me down at 22 and shown me a compound interest table. It made me want to cry — not out of regret, but out of urgency. Because I still have time. And so do you.</p>
+    <p>This isn't a finance newsletter. It's not stock tips or day-trading advice or options strategies. It's the letter that someone should have mailed to both of us a long time ago. From the version of us that figured it out. Written like your future self is reaching back through time, frustrated and loving, saying: <em>just start. It doesn't have to be complicated. You don't have to be smart. You just have to know.</em></p>
+    <p style="color: var(--ink); font-style: italic;">— The founder, Austin TX</p>
+  </div>
+</section>
+
+<!-- BUFFETT QUOTE -->
+<section class="quote-section">
+  <p class="buffett-quote">"Someone is sitting in the shade today because someone planted a tree a long time ago."</p>
+  <p class="buffett-attr">— Warren Buffett &nbsp;·&nbsp; Your theoretical rich uncle</p>
+</section>
+
+<!-- 12 LETTERS -->
+<section class="letters-section">
+  <div class="letters-inner">
+    <div class="letters-header">
+      <div>
+        <p class="section-label">The full year</p>
+        <h2 class="section-title">12 letters.<br>12 things <em>nobody told you.</em></h2>
+      </div>
+      <p style="font-size: 14px; color: var(--ink-muted); max-width: 280px; text-align: right; line-height: 1.6;">One concept per month. No jargon. No prerequisites. Just the stuff that changes how you think about money — forever.</p>
+    </div>
+
+    <div class="letters-grid">
+      <div class="letter-item">
+        <div class="letter-num">No. 01</div>
+        <div class="letter-title">The ceiling was a lie</div>
+        <div class="letter-desc">Income ≠ wealth. The $70k trap your family never knew they were in.</div>
+      </div>
+      <div class="letter-item">
+        <div class="letter-num">No. 02</div>
+        <div class="letter-title">Meet your silent business partner</div>
+        <div class="letter-desc">What the S&P 500 actually is. You own a piece of America. Here's what that means.</div>
+      </div>
+      <div class="letter-item">
+        <div class="letter-num">No. 03</div>
+        <div class="letter-title">The most boring chart in the world</div>
+        <div class="letter-desc">Compound interest. The Rule of 72. The math that should make you emotional.</div>
+      </div>
+      <div class="letter-item">
+        <div class="letter-num">No. 04</div>
+        <div class="letter-title">Time is the only cheat code</div>
+        <div class="letter-desc">Why starting at 25 vs 35 is a $500,000 difference. And why you're still not too late.</div>
+      </div>
+      <div class="letter-item">
+        <div class="letter-num">No. 05</div>
+        <div class="letter-title">Your rich uncle would say be boring</div>
+        <div class="letter-desc">What Buffett and Munger actually do. And why everyone assumes they're the exception.</div>
+      </div>
+      <div class="letter-item">
+        <div class="letter-num">No. 06</div>
+        <div class="letter-title">The news is lying to you</div>
+        <div class="letter-desc">Why world events, recessions, and headlines are designed to scare you out of your money.</div>
+      </div>
+      <div class="letter-item">
+        <div class="letter-num">No. 07</div>
+        <div class="letter-title">A crash is a sale</div>
+        <div class="letter-desc">What a market crash actually means for a long-term investor. (It's not what they tell you.)</div>
+      </div>
+      <div class="letter-item">
+        <div class="letter-num">No. 08</div>
+        <div class="letter-title">The math of "I'll start next year"</div>
+        <div class="letter-desc">Every year you wait costs you more than you think. Here's the exact number.</div>
+      </div>
+      <div class="letter-item">
+        <div class="letter-num">No. 09</div>
+        <div class="letter-title">You don't need to be smart</div>
+        <div class="letter-desc">Dollar-cost averaging. Why being consistent beats being clever. Every time.</div>
+      </div>
+      <div class="letter-item">
+        <div class="letter-num">No. 10</div>
+        <div class="letter-title">The free money most people ignore</div>
+        <div class="letter-desc">What a 401k match actually is. Why leaving it on the table is the most expensive mistake you make.</div>
+      </div>
+      <div class="letter-item">
+        <div class="letter-num">No. 11</div>
+        <div class="letter-title">The one number that matters</div>
+        <div class="letter-desc">Net worth. How to track it. Why seeing it grow changes your behavior more than any advice.</div>
+      </div>
+      <div class="letter-item">
+        <div class="letter-num">No. 12</div>
+        <div class="letter-title">What you're really building</div>
+        <div class="letter-desc">Generational wealth. What it means. What it feels like. And how you became the rich uncle.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <p class="section-label">How it works</p>
+  <h2 class="section-title" style="max-width: 480px;">Three steps.<br><em>One year.</em> Everything changes.</h2>
+
+  <div class="how-steps">
+    <div class="fade-up">
+      <div class="how-step-num">01</div>
+      <div class="how-step-title">Subscribe for $9/month</div>
+      <p class="how-step-body">Less than a Chipotle bowl. You're charged once a month, and you can cancel anytime. No fine print, no funny business.</p>
+    </div>
+    <div class="fade-up">
+      <div class="how-step-num">02</div>
+      <div class="how-step-title">A letter arrives in your mailbox</div>
+      <p class="how-step-body">Real paper. Real stamps. Typed like it came from the future. With a stat card and a quote worth keeping. Once a month, every month.</p>
+    </div>
+    <div class="fade-up">
+      <div class="how-step-num">03</div>
+      <div class="how-step-title">You finally get it</div>
+      <p class="how-step-body">Not how to pick stocks. Just why time in the market changes everything — and why you wish someone had told you sooner.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<hr class="section-divider" />
+<section class="final-cta" id="subscribe">
+  <div class="fade-up">
+    <h2>The letter someone<br>should have sent you<br><em>a long time ago.</em></h2>
+  </div>
+  <div class="fade-up">
+    <div class="final-price">
+      <span class="price-amount">$9</span>
+      <span class="price-period">/ month</span>
+    </div>
+    <p class="price-desc">12 letters. One per month. Shipped via USPS to your door. Also makes an unforgettable gift for anyone in your life who needs to hear this.</p>
+
+    <div class="email-form-lg">
+      <input type="email" placeholder="your@email.com" id="final-email" />
+      <button class="btn-full" onclick="handleSignup('final-email')">Join the waitlist &rarr;</button>
+      <p class="form-note">Not financial advice &nbsp;·&nbsp; Just the letter you needed</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Letters to My Rich Self</span>
+  <span class="footer-note">Austin, TX &nbsp;·&nbsp; Shipped via USPS &nbsp;·&nbsp; &copy; 2025</span>
+</footer>
+
+<script>
+  function handleSignup(inputId) {
+    const input = document.getElementById(inputId);
+    const email = input.value.trim();
+    if (!email || !email.includes('@')) {
+      input.style.borderColor = '#8B2020';
+      input.focus();
+      return;
+    }
+    input.style.borderColor = '#9B7A2F';
+    input.value = '';
+    input.placeholder = 'You\'re on the list. More soon.';
+    input.disabled = true;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
